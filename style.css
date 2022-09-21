@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap');
+* {
+    font-family: 'League Spartan'; 
+    font-weight: 700; 
+    margin: 0;
+    box-sizing: border-box; 
+    transition: .2s;
+}
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 2% 0;  
+}
+#calculator {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 420px; 
+    gap: 20px;
+}
+#calculator-header {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+}
+#logo {
+    font-size: 1.5rem;
+}
+#theme-switcher {
+    display: flex;
+    align-items: flex-end;
+    gap: 25px;  
+}
+#theme-switcher > p {  
+    font-size: .8rem;
+}
+#theme-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    justify-items: center;  
+    gap: 5px 12px; 
+    position: relative;
+}
+#theme-grid::before {
+    content: '';
+    position: absolute;
+    height: 11px;
+    width: 11px;  
+    border-radius: 100px;
+    z-index: 1; 
+    transition: .2s;
+} 
+#theme-grid::after {
+    content: ''; 
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 16px;
+    width: 100%;
+    border-radius: 100px;
+    z-index: 0;
+}
+#theme-grid input[type$="checkbox"] {
+    position: relative; 
+    cursor: pointer;
+    appearance: none; 
+    width: 16px;
+    height: 16px;  
+    z-index: 3;  
+}
+#calculator-display { 
+    min-height: 105px;            
+    max-height: 380px;   
+    width: 100%;  
+    border-radius: 10px;
+    text-align: right; 
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-end;
+    justify-content: space-between;  
+    padding: 5% 5% 4%; 
+    overflow-wrap: anywhere;   
+}
+#previous-operand {  
+    font-size: 1.2rem; 
+}
+#current-operand {
+    font-size: 2.2rem;
+}
+#calculator-main {
+    height: auto; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-radius: 10px; 
+    padding: 5%;
+    gap: 1.3rem;    
+} 
+.calculator-button {
+    font-size: 2rem;   
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+    padding: .5rem 0 .1rem; 
+    border-radius: 8px;  
+    cursor: pointer; 
+    border: none;  
+    transition: .1s;     
+}  
+.first-theme .calculator-button:active, .second-theme .calculator-button:active, .third-theme .calculator-button:active {
+    transform: translateY(3px); 
+    box-shadow: none; 
+}
+.calculator-button:hover { 
+    filter: brightness(1.2); 
+}
+#delete-button {
+    font-size: 1.5rem; 
+}
+#reset-button {
+    grid-column-start: 1;
+    grid-column-end: 3; 
+    font-size: 1.5rem; 
+    padding: .7rem 0 .4rem;
+}
+#reset-button:active, #equate-button:active {
+    box-shadow: none; 
+} 
+#equate-button {
+    grid-column-start: 3;
+    grid-column-end: 5;    
+    color: white;
+    font-size: 1.5rem; 
+    padding: .7rem 0 .4rem; 
+}
+
+
+.first-theme {
+    background: hsl(222, 26%, 31%);
+}
+.first-theme #logo {
+    color: white;
+}
+.first-theme #theme-switcher {
+    color: white; 
+}
+.first-theme #theme-grid::before {
+    background: hsl(6, 63%, 50%); 
+    left: 3px; 
+    top: 50%;
+    transform: translate(0,40%);  
+}
+.first-theme #theme-grid::after {
+    background: hsl(223, 31%, 20%);
+}
+.first-theme #calculator-display {
+    background: hsl(224, 36%, 15%); 
+}
+.first-theme #previous-operand {  
+    color: rgba(255, 255, 255, 0.8); 
+}
+.first-theme #current-operand {
+    color: white; 
+}
+.first-theme #calculator-main {
+    background: hsl(223, 31%, 20%); 
+}
+.first-theme .calculator-button{
+    background: hsl(30, 25%, 89%); 
+    box-shadow: 0 3px 0 hsl(28, 16%, 65%);
+    color: hsl(221, 14%, 31%);
+}
+.first-theme #delete-button {
+    background: hsl(225, 21%, 49%);
+    box-shadow: 0 3px 0 hsl(224, 28%, 35%);
+    color: white; 
+}
+.first-theme #reset-button {
+    background: hsl(225, 21%, 49%);
+    box-shadow: 0 3px 0 hsl(224, 28%, 35%); 
+    color: white; 
+}
+.first-theme #equate-button {
+    background: hsl(6, 63%, 50%);
+    box-shadow: 0 3px 0 hsl(6, 70%, 34%);
+}
+
+
+
+
+.second-theme {
+    background:  hsl(0, 0%, 90%);
+}
+.second-theme #logo {
+    color: hsl(60, 10%, 19%);
+}
+.second-theme #theme-switcher {
+    color: hsl(60, 10%, 19%); 
+}
+.second-theme #theme-grid::before {
+    background: hsl(25, 98%, 40%); 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%,40%);   
+}
+.second-theme #theme-grid::after {
+    background: hsl(0, 5%, 81%);
+}
+.second-theme #calculator-display {
+    background: hsl(0, 0%, 93%); 
+}
+.second-theme #previous-operand {  
+    color: hsla(60, 9%, 19%, 0.5); 
+}
+.second-theme #current-operand {
+    color: hsl(60, 10%, 19%); 
+}
+.second-theme #calculator-main {
+    background: hsl(0, 5%, 81%);  
+}
+.second-theme .calculator-button{
+    background: hsl(45, 7%, 89%); 
+    box-shadow: 0 3px 0 hsl(35, 11%, 61%); 
+    color: hsl(60, 10%, 19%);
+}
+.second-theme #delete-button {
+    background: hsl(185, 42%, 37%);
+    box-shadow: 0 3px 0 hsl(185, 58%, 25%); 
+    color: white; 
+}
+.second-theme #reset-button {
+    background: hsl(185, 42%, 37%);
+    box-shadow: 0 3px 0 hsl(185, 58%, 25%); 
+    color: white; 
+}
+.second-theme #equate-button { 
+    background: hsl(25, 98%, 40%);
+    box-shadow: 0 3px 0 hsl(25, 99%, 27%);   
+}
+
+
+
+
+
+.third-theme {
+    background:  hsl(268, 75%, 9%);
+}
+.third-theme #logo {
+    color: hsl(52, 100%, 62%); 
+}
+.third-theme #theme-switcher {
+    color: hsl(52, 100%, 62%); 
+}
+.third-theme #theme-grid::before {
+    background: hsl(176, 100%, 44%); 
+    left: 90%;  
+    top: 50%; 
+    transform: translate(-50%,40%);  
+}
+.third-theme #theme-grid::after {
+    background: hsl(268, 71%, 12%);
+}
+.third-theme #calculator-display {
+    background: hsl(268, 71%, 12%); 
+}
+.third-theme #previous-operand {  
+    color: hsla(52, 100%, 62%, 0.5);  
+}
+.third-theme #current-operand {
+    color: hsl(52, 100%, 62%); 
+}
+.third-theme #calculator-main {
+    background: hsl(268, 71%, 12%);  
+}
+.third-theme .calculator-button{
+    background: hsl(268, 47%, 21%); 
+    box-shadow: 0 3px 0 hsl(290, 70%, 36%); 
+    color: hsl(52, 100%, 62%);
+}
+.third-theme #delete-button {
+    background: hsl(281, 89%, 26%);
+    box-shadow: 0 3px 0 hsl(285, 91%, 52%); 
+    color: white; 
+}
+.third-theme #reset-button {
+    background: hsl(281, 89%, 26%);
+    box-shadow: 0 3px 0 hsl(285, 91%, 52%);  
+    color: white; 
+} 
+.third-theme #equate-button { 
+    background: hsl(176, 100%, 44%);
+    box-shadow: 0 3px 0 hsl(177, 92%, 70%); 
+    color: hsl(198, 20%, 13%);   
+}
+
+@media screen and (max-width: 450px) {
+    main {
+        padding: 5%;    
+    }
+}

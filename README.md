@@ -1,0 +1,1 @@
+This project was on the rather difficult side, as I am still not used to using JavaScript classes however Kyle from Web Dev Simplified's video helped a lot.
