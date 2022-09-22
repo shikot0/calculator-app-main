@@ -62,7 +62,7 @@ main {
     border-radius: 100px;
     z-index: 0;
 }
-#theme-grid input[type$="checkbox"] {
+#theme-grid input[type$="radio"] { 
     position: relative; 
     cursor: pointer;
     appearance: none; 
