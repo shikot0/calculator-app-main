@@ -46,8 +46,8 @@ class Calculator {
                 break; 
             default: 
                 return;
-        }
-        this.currentOperand = computation;
+        } 
+        this.currentOperand = computation.toFixed(3);
         this.operation = undefined;
         this.previousOperand = ''; 
     }
